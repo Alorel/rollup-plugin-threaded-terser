@@ -3,13 +3,19 @@ import {MinifyOptions} from 'terser';
 import {noop} from './lib/noop';
 import {runAsyncTerser} from './lib/runAsyncTerser';
 
+/** Plugin options */
 export interface ThreadedTerserOpts {
+  /** Options to pass to Terser */
   terserOpts?: MinifyOptions;
 
   /** Also run on assets this function returns true for. */
-  includeAssets?(chunk: OutputAsset): boolean;
+  includeAssets?(asset: OutputAsset): boolean;
 }
 
+/**
+ * Create a plugin instance
+ * @param pluginOpts Plugin options
+ */
 export function threadedTerserPlugin(pluginOpts: ThreadedTerserOpts = {}): OutputPlugin {
   const {
     terserOpts,
@@ -32,9 +38,7 @@ export function threadedTerserPlugin(pluginOpts: ThreadedTerserOpts = {}): Outpu
       const promises: Promise<any>[] = Object.values(bundle)
         .filter(filterChunks)
         .map((asset): Promise<any> => {
-          const assetString: string = typeof asset.source === 'string' ? asset.source : asset.source.toString('utf8');
-
-          return runAsyncTerser(this, assetString, terserOpts)
+          return runAsyncTerser(this, asset.source.toString(), terserOpts)
             .then(minified => {
               asset.source = minified.code;
             });

@@ -1,49 +1,35 @@
-# rollup-plugin-userscript
+# rollup-plugin-threaded-terser
 
-Generates userscript metablocks and, optionally, outputs a separate matadata file.
+Runs Terser on your output chunks in worker threads. **REQUIRES NODE 12.8+**.
 
 -----
 
 # Installation
 
 [Configure npm for GitHub packages](https://help.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-npm-for-use-with-github-packages)
-then install `@alorel/rollup-plugin-userscript`
+then install `terser@^4.6.0` & `@alorel/rollup-plugin-threaded-terser`
 
 # Example
 
 ```javascript
-import {getPkgVersion, userscriptPlugin} from '@alorel/rollup-plugin-userscript';
+import {threadedTerserPlugin} from '@alorel/rollup-plugin-threaded-terser';
 
 export default {
   // ... your default options
   output: {
     // It can function as an output plugin
     plugins: [
-      userscriptPlugin({
-        userscript: {
-          // name & version inherited from package.json by default, but can be overridden
-          namespace: 'org.foo',
-          noframes: true,
-          grant: [
-            'GM_getValue',
-            'GM_setValue'
-          ]        
-        }
-      })
+      threadedTerserPlugin()
     ]
   },
-  // Or it can function as a regular plugin
+  // Or as a regular plugin
   plugins: [
-    userscriptPlugin({
-      // If provided, a separate meta file will be emitted too
-      metaFileName: 'index.meta.js',
-      // It can also be a function that returns synchronously or through a promise
-      userscript() {
-        return {
-          // ...
-          // getPkgVersion can be used to help generate CDN links
-          require: `https://cdn.jsdelivr.net/npm/lodash@${getPkgVersion('lodash')}/lodash.min.js`
-        };
+    threadedTerserPlugin({
+      // Options to pass to Terser
+      terserOpts: {/*...*/},
+      // If provided, Terser will also run on chunks that match this predicate
+      includeAssets(asset) {
+        return asset.fileName === 'service-worker.js';
       }
     })
   ]
@@ -53,36 +39,20 @@ export default {
 # API
 
 ```typescript
-interface UserscriptPluginOpts {
-    /** If provided, a metadata file will be emitted */
-    metaFileName?: string;
-    /** Userscript definition or a factory function to produce one */
-    userscript: UserscriptDefinition | (() => UserscriptDefinition | Promise<UserscriptDefinition>);
+import { OutputAsset, OutputPlugin } from 'rollup';
+import { MinifyOptions } from 'terser';
+
+/** Plugin options */
+export interface ThreadedTerserOpts {
+    /** Options to pass to Terser */
+    terserOpts?: MinifyOptions;
+    /** Also run on assets this function returns true for. */
+    includeAssets?(asset: OutputAsset): boolean;
 }
 
-interface UserscriptDefinition {
-    author: string;
-    description: string;
-    downloadURL?: string;
-    exclude?: string | string[];
-    grant?: string | string[];
-    homepage?: string;
-    icon?: string;
-    icon16?: string;
-    icon32?: string;
-    icon64?: string;
-    include?: string | string[];
-    match?: string | string[];
-    /** Defaults to package.json name */
-    name?: string;
-    namespace: string;
-    noframes?: boolean;
-    require?: string | string[];
-    resource?: string | string[];
-    'run-at'?: string;
-    updateURL?: string;
-    /** Defaults to package.json version */
-    version?: string;
-    [k: string]: any;
-}
+/**
+ * Create a plugin instance
+ * @param pluginOpts Plugin options
+ */
+export function threadedTerserPlugin(pluginOpts?: ThreadedTerserOpts): OutputPlugin;
 ```
