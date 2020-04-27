@@ -44,6 +44,7 @@ export function runAsyncTerser(ctx: PluginContext, code: string, config?: Minify
     const worker = new Worker(workerPath, {
       workerData
     });
+    worker.unref();
     const promise = new RunOnce(resolve, reject, worker);
 
     worker
