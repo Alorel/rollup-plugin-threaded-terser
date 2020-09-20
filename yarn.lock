@@ -37,7 +37,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alorel/rollup-plugin-copy-pkg-json@npm:^1.0.2":
+"@alorel/rollup-plugin-copy-pkg-json@npm:^1.0.3":
   version: 1.0.3
   resolution: "@alorel/rollup-plugin-copy-pkg-json@npm:1.0.3::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40alorel%2Frollup-plugin-copy-pkg-json%2F1.0.3%2F267f7e32b6d91360ce7b7c8a3af9d4e00cc9326a27d1ffe10fa97657335e66f6"
   dependencies:
@@ -48,7 +48,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alorel/rollup-plugin-copy@npm:^1.0.0":
+"@alorel/rollup-plugin-copy@npm:^1.0.1":
   version: 1.0.1
   resolution: "@alorel/rollup-plugin-copy@npm:1.0.1::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40alorel%2Frollup-plugin-copy%2F1.0.1%2Ffc7c18f617455d937f934c938f30c2b024a2fce66f83e3ac6389c5975aac6137"
   dependencies:
@@ -60,15 +60,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alorel/rollup-plugin-dts@npm:^1.1.0":
-  version: 1.1.1
-  resolution: "@alorel/rollup-plugin-dts@npm:1.1.1::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40alorel%2Frollup-plugin-dts%2F1.1.1%2F79444b11d57dba17968dfa0f6490d333f4022fd2d9b1b3277c484caf13a28caf"
+"@alorel/rollup-plugin-dts@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@alorel/rollup-plugin-dts@npm:2.0.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40alorel%2Frollup-plugin-dts%2F2.0.0%2Fad1251766fbfa76d2f537419f0de96b32b61a7f3e7f9b42c9d9d84a3824b64dd"
   dependencies:
-    "@rollup/pluginutils": ^3.0.9
+    bluebird: ^3.7.0
+    cross-spawn: ^7.0.0
+    glob: ^7.0.0
+    tmp: ^0.2.0
   peerDependencies:
     rollup: ^2.6.0 || ^1.30.0
     typescript: ^3.5.0
-  checksum: 2/bc2f3460cd52cc065aeae1f73ed2cdf73230437f9901b97d05146c1d4abcd0341b18787e49c60bc764a1074d345b290e4831eb463be8341c8e5ed0b386b03891
+  checksum: 2/16d3b4b748c7f0a62021a489d7dfbf69075549f38e4ae4fd8bb51b67aad4d085b8ca481a66ec12d6adf00093c1c484139162776868b52b6ccb87607cbfe407f4
   languageName: node
   linkType: hard
 
@@ -79,24 +82,24 @@ __metadata:
     "@alorel-personal/conventional-changelog-alorel": ^2.1.3
     "@alorel-personal/tslint-rules": ^5.0.7
     "@alorel/rollup-plugin-clean": ^1.0.0
-    "@alorel/rollup-plugin-copy": ^1.0.0
-    "@alorel/rollup-plugin-copy-pkg-json": ^1.0.2
-    "@alorel/rollup-plugin-dts": ^1.1.0
-    "@rollup/plugin-typescript": ^4.1.2 || ^3.1.1
+    "@alorel/rollup-plugin-copy": ^1.0.1
+    "@alorel/rollup-plugin-copy-pkg-json": ^1.0.3
+    "@alorel/rollup-plugin-dts": ^2.0.0
+    "@rollup/plugin-typescript": ^6.0.0
     "@semantic-release/changelog": ^5.0.1
     "@semantic-release/exec": ^5.0.0
     "@semantic-release/git": ^9.0.0
-    "@semantic-release/github": ^7.0.5
-    "@semantic-release/npm": ^7.0.5
-    "@types/node": ^13.13.1
-    "@types/terser": ^4.0.0 || ^3.12.0
+    "@semantic-release/github": ^7.1.1
+    "@semantic-release/npm": ^7.0.6
+    "@types/node": ^14.11.1
+    "@types/terser": ^3.12.0
     custom-tslint-formatters: ^2.4.0
-    rollup: ^2.6.1
-    semantic-release: ^17.0.6
+    rollup: ^2.27.1
+    semantic-release: ^17.1.2
     terser: ^5.3.2
-    tslib: ^1.11.1
+    tslib: ^2.0.1
     tslint: ^5.20.1
-    typescript: ^3.8.3
+    typescript: ^4.0.3
   peerDependencies:
     rollup: ^2.6.0 || ^1.30.0
     terser: ^4.6.0 || ^5.0.0
@@ -298,21 +301,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-typescript@npm:^4.1.2 || ^3.1.1":
-  version: 4.1.2
-  resolution: "@rollup/plugin-typescript@npm:4.1.2"
+"@rollup/plugin-typescript@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "@rollup/plugin-typescript@npm:6.0.0"
   dependencies:
-    "@rollup/pluginutils": ^3.0.1
-    resolve: ^1.14.1
+    "@rollup/pluginutils": ^3.1.0
+    resolve: ^1.17.0
   peerDependencies:
-    rollup: ^1.20.0||^2.0.0
+    rollup: ^2.14.0
     tslib: "*"
-    typescript: ">=2.1.0"
-  checksum: 2/c513233e4f8ca53504f217469b9dabaabaa743c27f0a7bbfabb6923dfc34fa28e4b206c301e94634cf6ad456a3eb817417cc99e8908d55a5f3b84049ebe66520
+    typescript: ">=3.4.0"
+  checksum: 2/4a474853394d725f68c3b502498d4c7b8d2c2edae2782fa04a0f2f749c2b9bf93dc6b01c7c71f4135fe47ce6697b868e249f70485173fb66b49842a743f37f0b
   languageName: node
   linkType: hard
 
-"@rollup/pluginutils@npm:^3.0.1, @rollup/pluginutils@npm:^3.0.9":
+"@rollup/pluginutils@npm:^3.1.0":
   version: 3.1.0
   resolution: "@rollup/pluginutils@npm:3.1.0"
   dependencies:
@@ -397,7 +400,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semantic-release/github@npm:^7.0.0, @semantic-release/github@npm:^7.0.5":
+"@semantic-release/github@npm:^7.0.0, @semantic-release/github@npm:^7.1.1":
   version: 7.1.1
   resolution: "@semantic-release/github@npm:7.1.1"
   dependencies:
@@ -423,7 +426,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semantic-release/npm@npm:^7.0.0, @semantic-release/npm@npm:^7.0.5":
+"@semantic-release/npm@npm:^7.0.0, @semantic-release/npm@npm:^7.0.6":
   version: 7.0.6
   resolution: "@semantic-release/npm@npm:7.0.6"
   dependencies:
@@ -511,10 +514,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:>= 8, @types/node@npm:^13.13.1":
+"@types/node@npm:*, @types/node@npm:>= 8":
   version: 13.13.21
   resolution: "@types/node@npm:13.13.21"
   checksum: 2/8e88d06fa585e932d3158644d2aefb9dcd3a3e0383594d820044b5264f912126c0fe32b33cdb83e2e1d11560240c64e5b1ac72bbe5bb0f96936f3bd1bb76aeb3
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^14.11.1":
+  version: 14.11.1
+  resolution: "@types/node@npm:14.11.1"
+  checksum: 2/f8bad278fcd5bdd3c173343967806a5601838570ee89ef96912909489df6d722ef7f4de08a31d98159293ef0005bd65353199327c65af77505d3aad2a05fd636
   languageName: node
   linkType: hard
 
@@ -539,7 +549,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/terser@npm:^4.0.0 || ^3.12.0":
+"@types/terser@npm:^3.12.0":
   version: 3.12.0
   resolution: "@types/terser@npm:3.12.0"
   dependencies:
@@ -860,7 +870,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bluebird@npm:^3.5.1, bluebird@npm:^3.5.3, bluebird@npm:^3.5.5":
+"bluebird@npm:^3.5.1, bluebird@npm:^3.5.3, bluebird@npm:^3.5.5, bluebird@npm:^3.7.0":
   version: 3.7.2
   resolution: "bluebird@npm:3.7.2"
   checksum: 2/4f2288662f3d4eadbb82d4daa4a7d7976a28fa3c7eb4102c9b4033b03e5be4574ba123ac52a7c103cde4cb7b2d2afc1dbe41817ca15a29ff21ecd258d0286047
@@ -2323,7 +2333,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:^7.1.1, glob@npm:^7.1.3, glob@npm:^7.1.4, glob@npm:^7.1.6":
+"glob@npm:^7.0.0, glob@npm:^7.1.1, glob@npm:^7.1.3, glob@npm:^7.1.4, glob@npm:^7.1.6":
   version: 7.1.6
   resolution: "glob@npm:7.1.6"
   dependencies:
@@ -5218,7 +5228,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@npm:^1.10.0, resolve@npm:^1.14.1, resolve@npm:^1.3.2":
+"resolve@npm:^1.10.0, resolve@npm:^1.17.0, resolve@npm:^1.3.2":
   version: 1.17.0
   resolution: "resolve@npm:1.17.0"
   dependencies:
@@ -5270,7 +5280,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^2.6.1":
+"rollup@npm:^2.27.1":
   version: 2.27.1
   resolution: "rollup@npm:2.27.1"
   dependencies:
@@ -5321,7 +5331,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semantic-release@npm:17.1.2, semantic-release@npm:^17.0.6":
+"semantic-release@npm:17.1.2, semantic-release@npm:^17.1.2":
   version: 17.1.2
   resolution: "semantic-release@npm:17.1.2"
   dependencies:
@@ -6029,6 +6039,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tmp@npm:^0.2.0":
+  version: 0.2.1
+  resolution: "tmp@npm:0.2.1"
+  dependencies:
+    rimraf: ^3.0.0
+  checksum: 2/13973825ff1c7aed3359bba97c146c860ebb5b1cbdca88387a2ff8bae704d2478b701cc3adc29b1461be292fed1e4ae56b378b6a0386bbab471ef32860e0a711
+  languageName: node
+  linkType: hard
+
 "to-regex-range@npm:^5.0.1":
   version: 5.0.1
   resolution: "to-regex-range@npm:5.0.1"
@@ -6069,10 +6088,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^1.11.1, tslib@npm:^1.8.0, tslib@npm:^1.8.1":
+"tslib@npm:^1.8.0, tslib@npm:^1.8.1":
   version: 1.13.0
   resolution: "tslib@npm:1.13.0"
   checksum: 2/5dc3bdaea3b67c76ef4a14c28fcb2171da7bcf292fd9c59a260098729626b1ce766c52b588f08e324ed9a0c52ea8a93a815920f980d75981abc9d850fbf310fb
+  languageName: node
+  linkType: hard
+
+"tslib@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "tslib@npm:2.0.1"
+  checksum: 2/7b42337a07f536c9650c72471cdf51317f07eb981692e91b8979fee3f6e20136a8f047e6ecdc5f2f3201132a6cc4e0096fa3c58655eba3803bf7fe739ccd088e
   languageName: node
   linkType: hard
 
@@ -6184,13 +6210,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:>=2.2.0 <4.0.0, typescript@npm:^3.8.3":
+"typescript@npm:>=2.2.0 <4.0.0":
   version: 3.9.7
   resolution: "typescript@npm:3.9.7"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 2/10848a9c35fd8c70a8792b8bd9485317534bcd58768793d3b7d9c7486e9fd30cf345f83fa2a324e0bf6088bc8a4d8d061d58fda38b18c2ff187cf01fbbff6267
+  languageName: node
+  linkType: hard
+
+"typescript@npm:^4.0.3":
+  version: 4.0.3
+  resolution: "typescript@npm:4.0.3"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 2/5c892e132756a83d22030d7fb38be47cde27613f71d233dbe7faf79e4a92852c5146bfddcaf8c2da1a37d35ae8bf7b8c888fdcd763d5ad184cea6b21e7466838
   languageName: node
   linkType: hard
 
