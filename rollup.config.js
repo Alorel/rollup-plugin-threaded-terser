@@ -1,15 +1,15 @@
 import typescript from '@rollup/plugin-typescript';
 import {join} from 'path';
-import {dependencies, peerDependencies} from './package.json';
+import {peerDependencies} from './package.json';
 import {cleanPlugin} from '@alorel/rollup-plugin-clean';
 import {copyPkgJsonPlugin as copyPkgJson} from '@alorel/rollup-plugin-copy-pkg-json';
-import {dtsPlugin as dts} from '@alorel/rollup-plugin-dts';
 import {copyPlugin as cpPlugin} from '@alorel/rollup-plugin-copy';
 
 function mkOutput(overrides = {}) {
   return {
     entryFileNames: '[name].js',
     assetFileNames: '[name][extname]',
+    preserveModules: true,
     sourcemap: false,
     ...overrides
   };
@@ -22,17 +22,15 @@ const baseSettings = {
   },
   external: Array.from(
     new Set(
-      Object.keys(dependencies)
-        .concat(Object.keys(peerDependencies))
+      Object.keys(peerDependencies)
         .concat('path', 'worker_threads')
         .filter(v => !v.startsWith('@types/'))
     )
   ),
-  preserveModules: true,
   watch: {
     exclude: 'node_modules/*'
   }
-}
+};
 
 function plugins(add = [], tscOpts = {}) {
   return [
@@ -52,8 +50,7 @@ export default [
       plugins: [
         copyPkgJson({
           unsetPaths: ['devDependencies', 'scripts']
-        }),
-        dts()
+        })
       ]
     }),
     plugins: plugins([
@@ -73,7 +70,9 @@ export default [
           'README.md'
         ]
       })
-    ])
+    ], {
+      declaration: true,
+    })
   },
   {
     ...baseSettings,
