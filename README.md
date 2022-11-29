@@ -1,13 +1,13 @@
 # rollup-plugin-threaded-terser
 
-Runs Terser on your output chunks in worker threads. **REQUIRES NODE 12.8+**.
+Runs Terser on your output chunks in worker threads. **REQUIRES NODE 16+**.
 
 -----
 
 # Installation
 
 [Configure npm for GitHub packages](https://help.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-npm-for-use-with-github-packages)
-then install `terser@^4.6.0` & `@alorel/rollup-plugin-threaded-terser`
+then install `terser@^4.6.0` or `^5.0.0` & `@alorel/rollup-plugin-threaded-terser`
 
 # Example
 
