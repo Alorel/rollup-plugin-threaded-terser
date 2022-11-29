@@ -1,3 +1,20 @@
+# [2.0.0](https://github.com/Alorel/rollup-plugin-threaded-terser/compare/1.1.0...2.0.0) (2022-11-29)
+
+
+### ci
+
+* Update CI workflows ([678e02a](https://github.com/Alorel/rollup-plugin-threaded-terser/commit/678e02a837567817558f5beb0d981c02e6c287e5))
+
+
+### Maintenance
+
+* Update dependencies & support Rollup v3 ([8be267b](https://github.com/Alorel/rollup-plugin-threaded-terser/commit/8be267bee31be85b781e011a39305d13582e74d6))
+
+
+### BREAKING CHANGES
+
+* Only support Node 16 & 18
+
 # [1.1.0](https://github.com/Alorel/rollup-plugin-threaded-terser/compare/1.0.1...1.1.0) (2020-09-20)
 
 
