@@ -1,4 +1,5 @@
 node_modules/
+/rollup.config-*
 *.log
 dist/
 /tmp.js
